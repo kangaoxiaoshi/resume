@@ -14,14 +14,14 @@ let uri = 'http://localhost:8081'
 let compiler = webpack({
   context: path.resolve(__dirname, "./"),
   entry: {
-    app: resolve('asset/src/main.js')
+    app: resolve('asset/src/index.js')
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: '[name].js', // name 是此时entry的key
     publicPath: '/'  // 资源文件加载时地址
   },
-  // 
+  //
   resolve: {
     extensions: [".js"]
   },
@@ -30,6 +30,15 @@ let compiler = webpack({
       {
         test: /\.js$/,
         loader: 'babel-loader'        
+      },
+      {
+        test: /\.html$/,        
+        use: [ {
+          loader: 'html-loader',
+          options: {
+            minimize: true
+          }
+        }]
       }
     ]
   },

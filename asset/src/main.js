@@ -1,3 +1,2 @@
-import lizard from  './lib/app'
-
-lizard.start();
+// import lizard from  './lib/app'
+// lizard.start();
