@@ -1,7 +1,13 @@
 import PageView from './lib/pageView'
 import template from './index.html'
+import styleEditor from './widget/styleeditor'
+
 const vueConfig = {
+  updated() {},
   template: template,
+  components: {
+    'style-editor': styleEditor
+  },  
   methods: {    
     async makeResume() {      
       // 显示简历样式
@@ -81,14 +87,20 @@ let view = new PageView({
         resolve() 
         return
       }
-      let showStyle = (function () {      
-        let timer = setInterval(()=> {
+      const showStyle = (async function () {      
+        const timer = setInterval(()=> {
           let char = this.vue.fullStyle.substr(this.vue.currentStyle.length, 1)
           this.vue.currentStyle += char
+          if (this.vue.fullStyle.substr(this.vue.currentStyle.length-1, 1) === '\n' && this.vue.$refs.styleEditor) {
+            
+            this.vue.$nextTick(() => {
+              this.vue.$refs.styleEditor.goBottom()
+            })
+          }
           if (this.vue.currentStyle.length >= this.vue.fullStyle.length) {
             clearInterval(timer)
             resolve()
-          }
+          }          
         }, this.vue.interval)        
       }).bind(this)
       showStyle()      

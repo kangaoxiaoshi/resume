@@ -29,18 +29,18 @@ Object.assign(pageView.prototype, {
     if (true) {
       Object.assign(vueConfig, {
         created() {
-          console.log(`模板渲染数据:\n${JSON.stringify(data)}`)
+          //console.log(`模板渲染数据:\n${JSON.stringify(data)}`)
           console.time(`${this._uid}创建时间`)
         },
         mounted() {
           console.timeEnd(`${this._uid}创建时间`)
         },
         beforeUpdate() {
-          console.time(`${this._uid}更新时间`)
+          //console.time(`${this._uid}更新时间`)
         },
         updated() {
-          console.log(`模板更新数据:\n${JSON.stringify(data)}`)
-          console.timeEnd(`${this._uid} 更新时间`)          
+          //console.log(`模板更新数据:\n${JSON.stringify(data)}`)
+          //console.timeEnd(`${this._uid} 更新时间`)          
         }
       })
     }

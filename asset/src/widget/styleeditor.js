@@ -1,12 +1,23 @@
 import Vue from '../vendor/vue'
 import template from './styleeditor.html'
+import Prism from 'prismjs'
+import Vue from 'vue'
 
 let options = {
   template: template,
-  data() {
+  props: ['code'],
+  computed: {
+    highlightedCode() {
+      return Prism.highlight(this.code, Prism.languages.css)
+    },
+    codeInStyleTag() {
+      return `<style>${this.code}</style>`
+    }
   },
-  props: ['style'],
-  methods: {    
-  },
-  
+  methods: { 
+    goBottom() {
+      this.$refs.container.scrollTop = 100000
+    }   
+  } 
 }
+export default options
