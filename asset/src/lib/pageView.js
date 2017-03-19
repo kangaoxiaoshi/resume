@@ -50,7 +50,9 @@ Object.assign(pageView.prototype, {
       el: '#main',
       data: data
     }, vueConfig)
-    this.vue = new Vue(options)    
+    this.vue = new Vue(options)
+       
+    this.vue.pageView = this
   }  
 })
 //

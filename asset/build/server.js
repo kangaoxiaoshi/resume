@@ -29,7 +29,8 @@ let compiler = webpack({
     rules: [
       {
         test: /\.js$/,
-        loader: 'babel-loader'        
+        loader: 'babel-loader',
+        include: [resolve('../src')]       
       },
       {
         test: /\.html$/,        
