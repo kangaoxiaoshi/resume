@@ -1,7 +1,7 @@
 import PageView from './lib/pageView'
 import template from './index.html'
 import styleEditor from './widget/styleeditor'
-
+import css from './style/index.css'
 const vueConfig = {
   updated() {},
   template: template,
@@ -16,6 +16,9 @@ const vueConfig = {
   }
 }
 let view = new PageView({
+  options: {
+    css: css
+  },
   onCreate () {    
     this.registerView(vueConfig, {
       interval: 50,

@@ -38,8 +38,20 @@ let compiler = webpack({
           loader: 'html-loader',
           options: {
             minimize: true
-          }
-        }]
+          }         
+        }],
+        //include: [resolve('../src')]
+      },
+      {
+        test: /\.css$/,
+        use: [          
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1
+            }
+          }          
+        ]
       }
     ]
   },

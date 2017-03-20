@@ -9,11 +9,13 @@ function pageView (options) {
 
 
 Object.assign(pageView.prototype, {
+  options: {},
   onCreate: util.noop,
   ajax: util.noop,
   onShow: util.noop,
   _initialize () {
-    this.onCreate()    
+    this.onCreate() 
+    this._cssInsert()   
     this._requestPage()
   },
   _requestPage () {
@@ -53,6 +55,13 @@ Object.assign(pageView.prototype, {
     this.vue = new Vue(options)
        
     this.vue.pageView = this
+  },
+  _cssInsert() {
+    if (this.options.css) {
+      let style = document.createElement('style')
+      style.innerHTML = this.options.css
+      document.querySelector('head').appendChild(style)
+    }
   }  
 })
 //
