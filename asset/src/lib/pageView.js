@@ -57,9 +57,10 @@ Object.assign(pageView.prototype, {
     this.vue.pageView = this
   },
   _cssInsert() {
-    if (this.options.css) {
+    const pageCss = this.options.css
+    if (pageCss) {
       let style = document.createElement('style')
-      style.innerHTML = this.options.css
+      style.innerHTML = pageCss
       document.querySelector('head').appendChild(style)
     }
   }  

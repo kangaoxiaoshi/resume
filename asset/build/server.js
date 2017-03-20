@@ -5,7 +5,7 @@ let webpack = require('webpack')
 let webpackMiddleware = require("webpack-dev-middleware")
 let HtmlWebpackPlugin = require('html-webpack-plugin')
 // 转到项目更目录下
-function resolve (dir) {
+function resolve (dir) {  
   return path.join(__dirname, '../../', dir);
 }
 
@@ -23,38 +23,34 @@ let compiler = webpack({
   },
   //
   resolve: {
-    extensions: [".js"]
+    extensions: [".js", ".html", ".css"]
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('../src')]       
+        include: [resolve('src')]       
       },
       {
         test: /\.html$/,        
         use: [ {
           loader: 'html-loader',
           options: {
-            minimize: true
+            minimize: true,
+            htmlLoader: {
+              ignoreCustomFragments: [/\{\{.*?}}/],
+              root: resolve('src1')  
+            }
           }         
-        }],
-        //include: [resolve('../src')]
+        }]        
       },
       {
         test: /\.css$/,
-        use: [          
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1
-            }
-          }          
-        ]
+        loader: 'css-loader'       
       }
     ]
-  },
+  }, 
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',  // 生成的文件
