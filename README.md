@@ -1,2 +1,2 @@
 # resume
-[预览](https://kangaoxiaoshi.github.io/animating-resume/dist/index.html)
+[预览](https://kangaoxiaoshi.github.io/resume/dist/index.html)
