@@ -33,17 +33,20 @@ let compiler = webpack({
         include: [resolve('src')]       
       },
       {
-        test: /\.html$/,        
-        use: [ {
-          loader: 'html-loader',
-          options: {
-            minimize: true,
-            htmlLoader: {
-              ignoreCustomFragments: [/\{\{.*?}}/],
-              root: resolve('src1')  
-            }
-          }         
-        }]        
+        test: /\.html$/,
+        loader: 'html-loader',
+        options: {minimize: true}   
+        // test: /\.html$/,        
+        // use: [ {
+        //   loader: 'html-loader',
+        //   options: {
+        //     minimize: true,
+        //     htmlLoader: {
+        //       ignoreCustomFragments: [/\{\{.*?}}/],
+        //       root: resolve('src1')  
+        //     }
+        //   }         
+        // }]        
       },
       {
         test: /\.css$/,

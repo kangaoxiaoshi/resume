@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "node ./asset/build/build.js",
-    "test": "node ./asset/build/server.js"
+    "test": "node ./asset/build/test.js"
   },
   "keywords": [
     "resume",
