@@ -1,7 +1,6 @@
-import Vue from '../vendor/vue'
+// import Vue from '../vendor/vue'
 import template from './styleeditor.html'
 import Prism from 'prismjs'
-import Vue from 'vue'
 
 let options = {
   template: template,

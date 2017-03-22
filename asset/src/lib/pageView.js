@@ -1,4 +1,4 @@
-import Vue from '../vendor/vue'
+let  Vue = require('../vendor/vue').Vue
 import util from './util'
 import {Promise} from './es6'
 
@@ -6,7 +6,6 @@ function pageView (options) {
   Object.assign(this, options)
   this._initialize()
 }
-
 
 Object.assign(pageView.prototype, {
   options: {},

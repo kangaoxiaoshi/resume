@@ -15,8 +15,8 @@ let compiler = webpack({
   },
   output: {
     path: path.resolve(__dirname, '../../dist'), // 文件输出的文件夹目录
-    filename: './js/[name].[chunkhash].js', // name 是此时entry的key
-    publicPath: '/'  // 资源文件加载时地址
+    filename: 'js/[name].[chunkhash].js', // name 是此时entry的key
+    publicPath: './'  // 资源文件加载时地址
   },
   //
   resolve: {
@@ -27,7 +27,7 @@ let compiler = webpack({
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('src')]       
+        include: [resolve('./asset/src')]       
       },
       {
         test: /\.html$/,
